@@ -67,5 +67,49 @@ Etc…
 
 #### VGG 19 with class weightning
 
+With the class weighting technique , the early stop method, used to avoid overfitting, stoped the training process to the 17th epoch. In general, the plots indicate that early stopping and class weighting have likely helped prevent severe overfitting and maintained the model's generalization ability. The fluctuations in validation loss and accuracy suggest some instability, which could be due to the class weighting or particularities of the validation data, or some noice etc.
 
+**Training and Validation Accuracy**
 
+<img width="622" alt="image" src="https://github.com/StefanatouGerasimina/COVID_Classification/assets/63111398/2a3483ea-e13d-4f35-9965-0d5c586cccf9">
+
+- **High Accuracy:** The model is performing well at classifying the training and validation data.
+- **Validation Accuracy Drop:** This reinforces the idea that the model's performance on the validation set can vary more than on the training set.
+- **Convergence:** Despite the drop, the validation accuracy recovers and continues to track closely with the training accuracy, which indicates that the model is not severely overfitting by the end of training. However, the model does seem to exhibit some variability in performance on the validation set.
+
+**Training and Validation Loss**
+
+<img width="622" alt="image" src="https://github.com/StefanatouGerasimina/COVID_Classification/assets/63111398/f8ab4e42-d762-4478-bea9-09cae8b3acdd">
+
+- **Decreasing Loss:** Good sign that the model is learning and improving its predictions as training progresses.
+- **Spikes in Validation Loss:** It seems that that certain epochs or batch updates caused the model to perform worse on the validation set., maybe because of a challenging or noisy batch data , or it could be a sign of the model beginning to overfit to the training data.
+- **Stabilization:** After the initial spikes, the validation loss seems to stabilize, although it does not reach as low a value as the training loss, which may suggests overfitting.
+
+<img width="563" alt="image" src="https://github.com/StefanatouGerasimina/COVID_Classification/assets/63111398/a4b9bdba-8366-486f-b3c2-dce29560ea61">
+
+Overall, the model demonstrates a high true positive rate, suggesting a strong performance in identifying sick patients. It also has a high true negative rate, showing it can correctly recognize healthy individuals. The relatively low number of false positives and false negatives suggests the model has good accuracy.
+
+- **True Negatives (TN):** The model correctly identified 278 cases as healthy. These are instances where the model's prediction and the actual condition align, indicating that the model is effective at identifying healthy cases.
+- **True Positives (TP):** There are 750 cases where the model correctly identified individuals as sick. This indicates a strong ability of the model to recognize the condition it's designed to detect.
+- **False Positives (FP):** The model incorrectly identified 9 healthy individuals as sick. These are type I errors, where the model predicts the condition when it's not actually present.
+- **False Negatives (FN):** There are 8 cases where the model failed to identify sick individuals, incorrectly classifying them as healthy.
+
+<img width="733" alt="image" src="https://github.com/StefanatouGerasimina/COVID_Classification/assets/63111398/52494a69-03c3-40c6-8c46-61931779e633">
+
+- **True Positive Rate:** The curve starts at the top-left corner, indicating a high True Positive Rate. This means the model is correctly identifying most of the sick patients.
+
+- **False Positive Rate:** The curve starts at the top-left corner, indicating a high True Positive Rate. This means the model is correctly identifying most of the sick patients.
+
+<img width="257" alt="image" src="https://github.com/StefanatouGerasimina/COVID_Classification/assets/63111398/0d0d6e6a-4234-448b-bb60-5824bbebff29">
+
+The model shows excellent performance across all metrics, indicating it is highly effective in classifying individuals as either sick or healthy. Given that this is a crucial medical context, the high recall is particularly encouraging, as it implies the model is capable of correctly identifying most of the sick individuals, which is critical for a medical diagnostic tool. However, it's important to ensure these results are not due to overfitting and that the model is equally performant on unseen data.
+
+<img width="435" alt="image" src="https://github.com/StefanatouGerasimina/COVID_Classification/assets/63111398/ceebe79a-86c5-42cc-a9c4-c8a61fb1659b">
+
+A loss of 0.097 indicates that the model's predictions are very close to the true values. The lower the loss, the better the model is performing. This relatively low value suggests the model is doing a good job at predicting the validation set with minimal error.
+
+#### VGG 19 with image augmentation
+
+**Training and Validation Accuracy**
+
+**Training and Validation Loss**
