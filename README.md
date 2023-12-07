@@ -18,7 +18,7 @@ The given dataset provides 1348 X-rays of healthy patients and 3875 of x-rays fr
 **Distribution of Images**
 
 <img width="342" alt="image" src="https://github.com/StefanatouGerasimina/COVID_Classification/assets/63111398/447807a5-31ee-4294-839b-13edeb56982e">
-
+---
 <img width="584" alt="image" src="https://github.com/StefanatouGerasimina/COVID_Classification/assets/63111398/74d3b4d5-4a8c-4a59-a3da-006f229e7f86">
 
 This suggests that within the dataset represented, the majority of the input images are classified as having a health state of 1, which means healthy. The class distribution is imbalanced, with the "1" state (Sick with Covid19) being the predominant class. This could cause a bias to the model towards the “Healthy” class. 
