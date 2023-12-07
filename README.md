@@ -94,22 +94,70 @@ Overall, the model demonstrates a high true positive rate, suggesting a strong p
 - **False Positives (FP):** The model incorrectly identified 9 healthy individuals as sick. These are type I errors, where the model predicts the condition when it's not actually present.
 - **False Negatives (FN):** There are 8 cases where the model failed to identify sick individuals, incorrectly classifying them as healthy.
 
-<img width="733" alt="image" src="https://github.com/StefanatouGerasimina/COVID_Classification/assets/63111398/52494a69-03c3-40c6-8c46-61931779e633">
+<img width="500" alt="image" src="https://github.com/StefanatouGerasimina/COVID_Classification/assets/63111398/52494a69-03c3-40c6-8c46-61931779e633">
 
 - **True Positive Rate:** The curve starts at the top-left corner, indicating a high True Positive Rate. This means the model is correctly identifying most of the sick patients.
 
 - **False Positive Rate:** The curve starts at the top-left corner, indicating a high True Positive Rate. This means the model is correctly identifying most of the sick patients.
 
-<img width="257" alt="image" src="https://github.com/StefanatouGerasimina/COVID_Classification/assets/63111398/0d0d6e6a-4234-448b-bb60-5824bbebff29">
+<img width="250" alt="image" src="https://github.com/StefanatouGerasimina/COVID_Classification/assets/63111398/0d0d6e6a-4234-448b-bb60-5824bbebff29">
 
 The model shows excellent performance across all metrics, indicating it is highly effective in classifying individuals as either sick or healthy. Given that this is a crucial medical context, the high recall is particularly encouraging, as it implies the model is capable of correctly identifying most of the sick individuals, which is critical for a medical diagnostic tool. However, it's important to ensure these results are not due to overfitting and that the model is equally performant on unseen data.
 
-<img width="435" alt="image" src="https://github.com/StefanatouGerasimina/COVID_Classification/assets/63111398/ceebe79a-86c5-42cc-a9c4-c8a61fb1659b">
+<img width="250" alt="image" src="https://github.com/StefanatouGerasimina/COVID_Classification/assets/63111398/ceebe79a-86c5-42cc-a9c4-c8a61fb1659b">
 
 A loss of 0.097 indicates that the model's predictions are very close to the true values. The lower the loss, the better the model is performing. This relatively low value suggests the model is doing a good job at predicting the validation set with minimal error.
 
 #### VGG 19 with image augmentation
 
+The Data Augmentation method created 2  new images resulted from multiply rotations, flips, brightening scaling  etc techniques  to overcome the possible overfitting coming from the bug difference in the data distribution between the two classes. The Early Stopping method resulted into a VGG19 model with using only 17 epochs. Overall, the use of data augmentation appears to be beneficial for this model, as evidenced by stable training and validation metrics
+
 **Training and Validation Accuracy**
 
+<img width="610" alt="image" src="https://github.com/StefanatouGerasimina/COVID_Classification/assets/63111398/492531ce-d9fd-4f03-b219-66d7d09e5b54">
+
+- The training accuracy starts high and remains fairly stable throughout training, which is typical when using data augmentation.
+- The validation accuracy initially increases and then levels off, closely following the training accuracy with only a slight gap. This suggests that the model generalizes well to unseen data.
+- The close convergence of training and validation accuracy indicates that data augmentation has likely helped in mitigating overfitting.
+
 **Training and Validation Loss**
+
+<img width="610" alt="image" src="https://github.com/StefanatouGerasimina/COVID_Classification/assets/63111398/bf8a6125-b6d1-42ff-afeb-e3a311ceccaf">
+
+- The training loss decreases sharply and then stabilizes, which is consistent with a learning process that rapidly captures the underlying patterns before refining them over epochs.
+- The validation loss decreases alongside the training loss, with some variability but without a significant gap between them. This further suggests that the model is not overfitting, as data augmentation provides a regularizing effect.
+
+<img width="551" alt="image" src="https://github.com/StefanatouGerasimina/COVID_Classification/assets/63111398/5cf7cb2c-17e2-4b0a-832c-7799785c3673">
+
+Overall, the model effectively identifies both healthy and sick individuals with a high true positive and true negative rate, and low false positives and negatives, indicating strong precision and recall. However, even few false negatives are critical in medical scenarios, as they represent undiagnosed sick individuals, necessitating efforts to minimize them.
+
+- **True Negatives (TN)**: 728 healthy cases were correctly identified as healthy. This is the number of correct predictions where the actual class was 0 and the model also predicted 0.
+- **False Positives (FP):** 15 healthy cases were incorrectly identified as sick. This is the number of incorrect predictions where the actual class was 0 but the model predicted 1.
+- **False Negatives (FN):** 8 sick cases were incorrectly identified as healthy. This is the number of incorrect predictions where the actual class was 1 but the model predicted 0. In medical diagnostics, this is a critical error as it represents missed diagnoses.
+-**True Positives (TP):** 762 sick cases were correctly identified as sick. This is the number of correct predictions where the actual class was 1 and the model also predicted 1.
+
+  <img width="851" alt="image" src="https://github.com/StefanatouGerasimina/COVID_Classification/assets/63111398/517da43e-780b-48e1-a5f3-01e5a7ebed9f">
+
+  Overall, the ROC curve indicates that the VGG model with data augmentation is performing extremely well in distinguishing between the positive class (sick) and the negative class (healthy). It is important though, to conduct further evaluations, possibly with cross-validation or on a completely separate test set, to confirm these results.
+
+- The curve hugs the top left corner, which means a very high True Positive Rate (TPR) and a very low False Positive Rate (FPR).
+- The model appears to have achieved maximum sensitivity (no missed true positives) and specificity (no false alarms).
+
+<img width="200" alt="image" src="https://github.com/StefanatouGerasimina/COVID_Classification/assets/63111398/32821a0b-9c21-4140-b712-a21d03499138">
+
+The model shows excellent performance across all metrics, indicating it is highly effective in classifying individuals as either sick or healthy. The F1 score, which balances precision and recall, is excellent, indicating the model is robust in terms of both false positives and false negatives.
+
+<img width="250" alt="image" src="https://github.com/StefanatouGerasimina/COVID_Classification/assets/63111398/e6b16ef3-8dc4-4a37-a3ca-ca8e47d47568">
+
+ The validation metrics reinforce the model's ability to perform well on unseen data, indicating a well-tuned model. For example, the validation accuracy matches the overall accuracy, which suggests that the model generalizes well to new data, while the low validation loss indicates that the model’s predicted probabilities are, on average, close to the actual labels, with a small margin of error.
+
+ ## Comparison and Thoughts
+
+ Based on the results from the models and the techniques I applied, it seems that the Data Augmentation performs much better in combination  with the VGG 19 model. The combination of the large resulting dataset and the deep retrained convolutional network seems to overcome the problem of overfitting and succeeds into all the above mentioned metrics. However, in order to confidently claim the overcome of the overfit problem, we need to test the models into unseen datasets.
+
+ **Improvements**
+- Cross-Validation: Use k-fold cross-validation to ensure that the model's high performance is consistent across different subsets of the data.
+- Data Diversity: Ensure that my data includes diverse examples of X-rays to cover different stages, medical types of covid, and imaging equipment, which can help the model generalize across varied real-world scenarios.
+- Regularisation: Apply regularisation techniques to overcome overfitting.
+
+Etc..
