@@ -35,6 +35,9 @@ In class weighting, different weights are assigned to classes in such a way that
 
 Augmenting data for the class of Healthy lungs with rotations, width and height shifts, horizontal flips and brightness adjustment x2 in order to reach as close as possible the percentage of images in the class of “COVID19” . The adjustments were suggested by a previous scientist research, that can be found in the following link: https://link.springer.com/article/10.1140/epjs/s11734-022-00647-x 
 
+<img width="300" alt="image" src="https://github.com/StefanatouGerasimina/COVID_Classification/assets/63111398/447807a5-31ee-4294-839b-13edeb56982e">
+
+
 Original Image: 
 
 ![image](https://github.com/StefanatouGerasimina/COVID_Classification/assets/63111398/90e29340-d792-4af0-8726-af2f344dbc08)
